@@ -1,4 +1,4 @@
-package io.github.hamelmoon.jdbcstarter.annotation;
+package io.github.hamelmoon.jdbcstarter.aspect;
 
 import brave.Tracer;
 import io.github.hamelmoon.jdbcstarter.jdbc.ConnectionInfo;

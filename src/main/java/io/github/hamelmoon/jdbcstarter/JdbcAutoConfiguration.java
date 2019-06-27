@@ -1,7 +1,7 @@
 package io.github.hamelmoon.jdbcstarter;
 
 import brave.Tracer;
-import io.github.hamelmoon.jdbcstarter.annotation.JdbcAspect;
+import io.github.hamelmoon.jdbcstarter.aspect.JdbcAspect;
 import io.github.hamelmoon.jdbcstarter.properties.JdbcTracingProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

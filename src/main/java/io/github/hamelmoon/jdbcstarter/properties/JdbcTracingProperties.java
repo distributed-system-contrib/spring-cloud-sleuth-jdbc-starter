@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "opentracing.spring.cloud.jdbc")
+@ConfigurationProperties(prefix = "spring.cloud.sleuth.jdbc")
 public class JdbcTracingProperties {
 
   /**
