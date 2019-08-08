@@ -15,7 +15,7 @@ package io.github.hamelmoon.jdbcstarter.jdbc.parser;
 
 import io.github.hamelmoon.jdbcstarter.jdbc.ConnectionInfo;
 
-public class SqlserverURLParser extends AbstractURLParser {
+public class SqlServerURLParser extends AbstractURLParser {
 
   private static final int DEFAULT_PORT = 1433;
   private static final String DB_TYPE = "sqlserver";
@@ -38,7 +38,7 @@ public class SqlserverURLParser extends AbstractURLParser {
     int hostLabelStartIndex = url.indexOf("//");
     int hostLabelEndIndex = url.indexOf(";", hostLabelStartIndex + 2);
     if (hostLabelEndIndex == -1) {
-      hostLabelEndIndex = url.indexOf(";", hostLabelStartIndex + 2);
+      hostLabelEndIndex = url.length();
     }
     return new URLLocation(hostLabelStartIndex + 2, hostLabelEndIndex);
   }
@@ -53,6 +53,8 @@ public class SqlserverURLParser extends AbstractURLParser {
   @Override
   public ConnectionInfo parse(String url) {
     String[] parts = url.split(";");
+    //TODO: consideration of reflect
+    //Field[] declaredFields = SqlserverURLParser.class.getClass().getDeclaredFields();
 
     for (String s : parts) {
       if (s.contains("=")) {
@@ -93,9 +95,9 @@ public class SqlserverURLParser extends AbstractURLParser {
     String[] hostAndPort = hosts.split(":");
     if (hostAndPort.length != 1) {
       return new ConnectionInfo.Builder(hostAndPort[0], Integer.valueOf(hostAndPort[1]))
-          .dbType(DB_TYPE).dbInstance(databaseName).build();
+          .dbType(DB_TYPE).dbUser(user).dbInstance(databaseName).build();
     } else {
-      return new ConnectionInfo.Builder(hostAndPort[0], DEFAULT_PORT).dbType(DB_TYPE)
+      return new ConnectionInfo.Builder(hostAndPort[0], DEFAULT_PORT).dbType(DB_TYPE).dbUser(user)
           .dbInstance(databaseName).build();
     }
   }

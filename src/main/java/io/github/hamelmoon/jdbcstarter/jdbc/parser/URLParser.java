@@ -14,11 +14,6 @@
 package io.github.hamelmoon.jdbcstarter.jdbc.parser;
 
 import io.github.hamelmoon.jdbcstarter.jdbc.ConnectionInfo;
-import io.github.hamelmoon.jdbcstarter.jdbc.parser.ConnectionURLParser;
-import io.github.hamelmoon.jdbcstarter.jdbc.parser.H2URLParser;
-import io.github.hamelmoon.jdbcstarter.jdbc.parser.MysqlURLParser;
-import io.github.hamelmoon.jdbcstarter.jdbc.parser.OracleURLParser;
-import io.github.hamelmoon.jdbcstarter.jdbc.parser.PostgreSQLURLParser;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -38,7 +33,7 @@ public class URLParser {
     // put mysql parser firstly
     parserRegister.put(MYSQL_JDBC_URL_PREFIX, new MysqlURLParser());
     parserRegister.put(ORACLE_JDBC_URL_PREFIX, new OracleURLParser());
-    parserRegister.put(SQLSERVER_JDBC_URL_PREFIX, new SqlserverURLParser());
+    parserRegister.put(SQLSERVER_JDBC_URL_PREFIX, new SqlServerURLParser());
     parserRegister.put(H2_JDBC_URL_PREFIX, new H2URLParser());
     parserRegister.put(POSTGRESQL_JDBC_URL_PREFIX, new PostgreSQLURLParser());
   }
